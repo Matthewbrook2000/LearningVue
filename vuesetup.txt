@@ -1,0 +1,13 @@
+Start a vue project
+
+npm init
+
+npm install vue
+
+npm install -g @vue/cli
+
+vue create *project name*
+
+**cd into project**
+
+npm run serve
