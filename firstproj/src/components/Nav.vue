@@ -1,48 +1,64 @@
 <template>
   <div id="navbar">
-      <ul>
-        <li><a href="home" v-onclick="">Home</a></li>  
-        <li><a href="app1">App 1</a></li>   
-        <li><a href="app2">App 2</a></li>  
-        <li><a href="app3">App 3</a></li>
-        <li><a href="app4">App 4</a></li>    
+      <ul class="flex-container">
+        <li><button type="button" v-on:click = "changePage('main')">Home</button></li>  
+        <li><button type="button" v-on:click = "changePage('hoverText')">Hover</button></li>   
+        <li><button type="button" v-on:click = "changePage('counterApp')">Counter</button></li>
+        <li><button type="button" v-on:click = "changePage('revMessage')">Reverse</button></li>
+        <li><button type="button" v-on:click = "changePage('printArray')">Print array</button></li>
+        <li><button type="button" v-on:click = "changePage('ifStatement')">If statement</button></li>
        </ul>
+       <!-- <span @mouseover = "hover = true" @mouseleave = " hover = false"> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'Nav',
-
+  data() {
+    return {
+      hover: false,
+    }
+  },
+  methods: {
+    changePage(data){
+      this.$store.commit('changeCurrentPage', data);
+    }
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul {
+
+.flex-container {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: white;
+  justify-content: center;
 }
 
 li {
-  display: inline;
   float: left;
-
 }
 
-li a {
+li button {
   display: block;
-  padding: 14px 16px;
+  padding: 10px 10px;
+  margin: 10px;
   text-align: center;
   background-color: white; 
   text-decoration: none;
   color: black;
+  border-width: 0px 0px 1px 0px;
 }
 
-li a:hover {
-  background-color: #f0f0f0;
+li button:hover {
+  font-size: 15px;
+  color: red;
+  border-color: red;
 }
 </style>

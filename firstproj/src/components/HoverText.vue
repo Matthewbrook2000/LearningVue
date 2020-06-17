@@ -1,19 +1,20 @@
 <template>
-  <div class="hello">
-    <a>Type your name: </a>
-    <input type="text" v-model="name1"/>
-    <h1>hello {{ name1 + ' youre looking great'}}</h1> <!--moustaches can contain javascript which is cool-->
+  <div class="hover">
+    <span v-bind:title="message">
+        Hover your mouse here
+    </span> 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'HoverText',
+  
   data: function(){
     return {
-      name1: '',
+      message: 'Thanks for hovering',
     }
-  },
+  }
 }
 </script>
 
@@ -29,5 +30,8 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+}
+a {
+  color: #42b983;
 }
 </style>
